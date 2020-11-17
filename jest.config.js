@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/store',
     '<rootDir>/libs/libs/store/ui-shared',
     '<rootDir>/libs/store/ui-shared',
+    '<rootDir>/libs/store/util-formatters',
   ],
 };

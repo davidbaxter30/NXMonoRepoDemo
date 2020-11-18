@@ -30,11 +30,19 @@ function sortNXProjects(): Rule {
   });
 }
 
+function sortTsconfigPaths(): Rule {
+  return updateJsonInTree('tsconfig.base.json', (json) => {
+    json.compilerOptions.paths = sortObjectByKeys(json.compilerOptions.paths);
+    return json;
+  });
+}
+
 export default function (): Rule {
   return chain([
     incrementVersion(),
     sortWorkspaceProjects(),
     sortNXProjects(),
+    sortTsconfigPaths(),
     formatFiles()
   ]);
 }
